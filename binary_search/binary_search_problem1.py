@@ -19,6 +19,6 @@ def solution(cards, given_number):
         elif cards[middle] < given_number:
             end_index = middle - 1
 
-    print("--- Element not present in the array ---")
+    print("--- Element is not present in the array ---")
 
 solution([99,82,71,63,55,48,39,25,11,8], 71)
