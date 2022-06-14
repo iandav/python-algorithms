@@ -57,3 +57,49 @@ print(
         tree_2.left.left.value, tree_2.right.left.value, tree_2.right.right.value, # Level 2 values
         tree_2.right.left.right.value, tree_2.right.right.left.value, tree_2.right.right.right.value # Level 3 values
     ))
+
+# Tree traversals
+# Creation of tree_3 to traverse it inorder, preorder and postorder
+tree_3 = Node(2)
+tree_3.left = Node(3)
+tree_3.left.left = Node(1)
+tree_3.right = Node(5)
+tree_3.right.left = Node(3)
+tree_3.right.left.right = Node(4)
+tree_3.right.right = Node(7)
+tree_3.right.right.left = Node(6)
+tree_3.right.right.right = Node(8)
+
+# Result of tree_3
+#              (2)            
+#              / \
+#            (3) (5)___       
+#            /   /     \
+#          (1) (3)     (7)    
+#                \     / \
+#                (4) (6) (8) 
+
+# Inorder Traversal [1, 3, 2, 3, 4, 5, 6, 7, 8]
+# 1. Traverse the left subtree recursively inorder
+# 2. Traverse the root
+# 3. Traverse the right subtree recursively inorder
+
+def inorder_traversal(node):
+    if node is None:
+        return []
+    else:
+        return inorder_traversal(node.left) + [node.value] + inorder_traversal(node.right)
+
+print(inorder_traversal(tree_3))
+
+
+
+
+
+
+# Preorder Traversal
+# 1. Traverse the root
+# 2. Traverse the left subtree recursively preorder
+# 3. Traverse the right subtree recursively preorder
+
+# Postorder Traversal
