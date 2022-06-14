@@ -1,3 +1,6 @@
+from turtle import right
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -58,7 +61,7 @@ print(
         tree_2.right.left.right.value, tree_2.right.right.left.value, tree_2.right.right.right.value # Level 3 values
     ))
 
-# Tree traversals
+# Tree traversals - Recursion is the way
 # Creation of tree_3 to traverse it inorder, preorder and postorder
 tree_3 = Node(2)
 tree_3.left = Node(3)
@@ -90,16 +93,31 @@ def inorder_traversal(node):
     else:
         return inorder_traversal(node.left) + [node.value] + inorder_traversal(node.right)
 
-print(inorder_traversal(tree_3))
+print("Inorder traversal of tree_3:", inorder_traversal(tree_3))
 
 
-
-
-
-
-# Preorder Traversal
+# Preorder Traversal [2, 3, 1, 5, 3, 4, 7, 6, 8]
 # 1. Traverse the root
 # 2. Traverse the left subtree recursively preorder
 # 3. Traverse the right subtree recursively preorder
 
-# Postorder Traversal
+def preorder_traversal(node):
+    if node is None:
+        return []
+    else:
+        return [node.value] + preorder_traversal(node.left) + preorder_traversal(node.right)
+    
+print("Preorder traversal of tree_3:", preorder_traversal(tree_3))
+
+# Postorder Traversal [1, 3, 4, 3, 6, 8, 7, 5, 2]
+# 1. Traverse the left subtree recursively postorder
+# 2. Traverse the root
+# 3. Traverse the right subtree recursively postorder
+
+def postorder_traversal(node):
+    if node is None:
+        return []
+    else:
+        return postorder_traversal(node.left) + postorder_traversal(node.right) + [node.value]
+
+print("Postorder traversal of tree_3:", postorder_traversal(tree_3))
