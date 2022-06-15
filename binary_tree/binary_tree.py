@@ -121,3 +121,26 @@ def postorder_traversal(node):
         return postorder_traversal(node.left) + postorder_traversal(node.right) + [node.value]
 
 print("Postorder traversal of tree_3:", postorder_traversal(tree_3))
+
+# Height of a binary tree
+def tree_height(node):
+    if node is None:
+        return 0
+    else:
+        return 1 + max(tree_height(node.left), tree_height(node.right))
+
+print("Height of tree_3:", tree_height(tree_3))
+
+# Number of nodes in a binary tree
+def tree_size(node):
+    if node is None:
+        return 0
+    else:
+        return 1 + tree_size(node.left) + tree_size(node.right)
+
+print("Number of nodes in tree_3:", tree_size(tree_3))
+
+## Binary Search Tree
+# A BST is a binary tree that meets the following conditions:
+# 1. Left subtree of any node contains nodes with values less than the selected node value.
+# 2. Right subtree of any node contains nodes with values greater than the selected node value.
