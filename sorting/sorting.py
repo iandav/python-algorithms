@@ -89,14 +89,28 @@ def merge_sort(nums):
 
 print("Merge sort of [2,1,4,3,5]", merge_sort([2,1,3,4,5]))
 
-# Quicksort
+# Quicksort O(n^2)
 # 1. If the list is empty or has just one element, return it. It's already sorted.
 # 2. Pick a random element from the list. This element is called a pivot.
 # 3. Reorder the list so that all elements with values less than or equal to the pivot come before the pivot, while all elements with values greater than the pivot come after it. This operation is called partitioning.
 # 4. The pivot element divides the array into two parts which can be sorted independently by making a recursive call to quicksort.
 
-# Create partition function which picks a pivot, partitions the array and returns the position of the pivot
-def partition(list, start=0, end=None):
-    pass
+def quick_sort(sequence):
+    length = len(sequence)
+    if length < 1:
+        return sequence
+    else:
+        pivot = sequence.pop() # It returns the last element
 
+    items_greater = []
+    items_lower = []
 
+    for item in sequence:
+        if item > pivot:
+            items_greater.append(item)
+        else:
+            items_lower.append(item)
+
+    return quick_sort(items_lower) + [pivot] + quick_sort(items_greater)
+
+print("Quick sort of [2,1,4,3,5]", quick_sort([2,1,3,4,5]))
